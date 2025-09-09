@@ -62,9 +62,9 @@
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font></Label>
-                              <TextField GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
-                              <TextField GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+                              <TextField fx:id="txtDNI" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                              <TextField fx:id="txtApellidos" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
                               <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Buscar" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="5.0" />
@@ -101,12 +101,7 @@
                         </GridPane>
                         <AnchorPane>
                            <children>
-                              <TableView layoutX="7.0" layoutY="7.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                <columns>
-                                  <TableColumn prefWidth="75.0" text="C1" />
-                                  <TableColumn prefWidth="75.0" text="C2" />
-                                </columns>
-                              </TableView>
+                              <TableView fx:id="TableView" layoutX="7.0" layoutY="7.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                            </children></AnchorPane>
                      </children>
                   </HBox>
