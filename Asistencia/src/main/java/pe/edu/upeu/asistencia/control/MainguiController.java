@@ -52,7 +52,7 @@ public class MainguiController {
             String id = ( (MenuItem) e.getSource()).getId();
             if(menuConfig.containsKey(id)){
                 String[] mi = menuConfig.get(id);
-                if(mi[2].equals("Participantes")){
+                if(mi[2].equals("c")){
                     Platform.exit();
                     System.exit(0);
                 }else{
