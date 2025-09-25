@@ -10,20 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParticipanteRepository {
+    public List<Participante> participantes =new ArrayList<>();
 
-    public List<Participante> participantes = new ArrayList<>();
-
-    public List<Participante> findAll(){
+   public List<Participante> findAll(){
         participantes.add(new Participante(
-            new SimpleStringProperty("4567896654"),
-            new SimpleStringProperty("juan"),
-            new SimpleStringProperty("lupe"),
-            Carrera.SISTEMAS,
-            TipoParticipante.ASISTENTE,
-            new SimpleBooleanProperty(true)
-            )
+                new SimpleStringProperty("43631917"),
+                new SimpleStringProperty("Juan"),
+                new SimpleStringProperty("Apaza"),
+                Carrera.SISTEMAS,
+                TipoParticipante.ASISTENTE,
+                new SimpleBooleanProperty(true)
+                )
         );
         return participantes;
     }
-
 }

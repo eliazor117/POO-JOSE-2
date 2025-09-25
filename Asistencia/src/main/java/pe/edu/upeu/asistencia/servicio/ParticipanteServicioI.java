@@ -6,12 +6,12 @@ import java.util.List;
 
 public interface ParticipanteServicioI {
 
-    void save(Participante participante);
-    List<Participante> findAll();
-    Participante update(Participante participante, int index); //u
-    void delete(int index);
+    void save(Participante participante); //C
+    List<Participante> findAll(); //R
+    Participante update(Participante participante, int index); //U
+    void delete(int index); //D
 
-    Participante findById(int index);//Buscar
+    Participante findById(int index); //Buscar
 
 
 }

@@ -5,9 +5,9 @@ import pe.edu.upeu.asistencia.modelo.Participante;
 import pe.edu.upeu.asistencia.repositorio.ParticipanteRepository;
 
 import java.util.List;
-@Service
-public class ParticipanteServisioImp extends ParticipanteRepository implements ParticipanteServicioI { //erencia
 
+@Service
+public class ParticipanteServicioImp extends ParticipanteRepository implements ParticipanteServicioI {
 
     @Override
     public void save(Participante participante) {
@@ -36,4 +36,5 @@ public class ParticipanteServisioImp extends ParticipanteRepository implements P
     public Participante findById(int index) {
         return participantes.get(index);
     }
+
 }
