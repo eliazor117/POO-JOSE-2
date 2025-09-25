@@ -8,8 +8,8 @@ public interface ParticipanteServicioI {
 
     void save(Participante participante); //C
     List<Participante> findAll(); //R
-    Participante update(Participante participante); //U
-    void delete(String Dni); //D
+    Participante update(Participante participante, int index); //U
+    void delete(int index); //D
 
     Participante findById(int index); //Buscar
 

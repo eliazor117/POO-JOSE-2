@@ -11,27 +11,30 @@ public class ParticipanteServicioImp extends ParticipanteRepository implements P
 
     @Override
     public void save(Participante participante) {
-        super.save(participante);
+        participantes.add(participante);
     }
 
     @Override
     public List<Participante> findAll(){
-        return super.findAll();
+        if(participantes.isEmpty()){
+            return super.findAll();
+        }
+        return participantes;
     }
 
     @Override
-    public Participante update(Participante participante) {
-        return super.update(participante);
+    public Participante update(Participante participante, int index) {
+        return participantes.set(index, participante);
     }
 
     @Override
-    public void delete(String dni) {
-        super.delete(dni);
+    public void delete(int index) {
+        participantes.remove(index);
     }
 
     @Override
-    public Participante findById(String dni) {
-        return super.findById(dni);
+    public Participante findById(int index) {
+        return participantes.get(index);
     }
 
 }
