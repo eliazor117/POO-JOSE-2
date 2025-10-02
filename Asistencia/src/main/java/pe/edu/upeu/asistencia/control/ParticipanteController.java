@@ -20,7 +20,7 @@ import pe.edu.upeu.asistencia.servicio.ParticipanteServicioImp;
 
 @Controller
 public class ParticipanteController {
-  private ParticipanteServicioI ps;
+  //private ParticipanteServicioI ps;
     @FXML
     private ComboBox<Carrera> cbxCarrera;
 
@@ -32,15 +32,15 @@ public class ParticipanteController {
     TableColumn<Participante, String> dniCol, nombreCol, apellidoCol, carreraCol, tipoPartCol;
     TableColumn<Participante, Void> opcionCol;
 
-    //@Autowired
-    //ParticipanteServicioI ps;
+    @Autowired
+    ParticipanteServicioI ps;
 
 
     @FXML TextField txtDni, txtNombres, txtApellidos;
     int indexE=-1;
     @FXML
     public void initialize() {
-        ps=new ParticipanteServicioImp();
+
         cbxCarrera.getItems().setAll(Carrera.values());
         cbxTipoParticipante.getItems().setAll(TipoParticipante.values());
         definirNombresColumnas();
@@ -123,6 +123,7 @@ public class ParticipanteController {
         participante.setApellidos(txtApellidos.getText());
         participante.setCarrera(cbxCarrera.getValue());
         participante.setTipoParticipante(cbxTipoParticipante.getValue());
+        participante.setEstado(true);
         if(indexE==-1){
             ps.save(participante);
         }else{
