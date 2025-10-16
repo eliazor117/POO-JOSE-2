@@ -15,4 +15,5 @@ public class VentaDetalleServiceImp extends CrudGenericoServiceImp<VentaDetalle,
     protected ICrudGenericoRepository<VentaDetalle, Long> getRepo() {
         return ventaDetalleRepository;
     }
+
 }
