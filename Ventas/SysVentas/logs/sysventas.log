@@ -73,3 +73,6 @@
 2025-10-16T10:31:17.550-05:00  INFO 1828 --- [SysVentas] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2025-10-16T10:31:18.884-05:00  INFO 1828 --- [SysVentas] [JavaFX-Launcher] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
 2025-10-16T10:31:20.462-05:00  INFO 1828 --- [SysVentas] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 10.252 seconds (process running for 11.134)
+2025-10-16T11:40:57.745-05:00  INFO 1828 --- [SysVentas] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-16T11:40:57.758-05:00  INFO 1828 --- [SysVentas] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-16T11:40:57.761-05:00  INFO 1828 --- [SysVentas] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
