@@ -24,4 +24,3 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     @Query("SELECT p FROM Producto p WHERE p.marca.idMarca = :filter")
     List<Producto> listProductoMarcaJ(@Param("filter") Integer filter);
 }
-

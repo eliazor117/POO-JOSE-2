@@ -9,7 +9,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
@@ -18,10 +17,12 @@ public class SysVentasApplication extends Application {
 	private ConfigurableApplicationContext applicationContext;
 	private Parent root;
 
+
 	public static void main(String[] args) {
 		//SpringApplication.run(SysVentasApplication.class, args);
 		launch(args);
 	}
+
 	@Override
 	public void init() throws Exception {
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(SysVentasApplication.class);
@@ -31,15 +32,14 @@ public class SysVentasApplication extends Application {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
 		loader.setControllerFactory(applicationContext::getBean);
 		root = loader.load();
-
 	}
+
 	@Override
 	public void start(Stage stage) throws Exception {
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
-		stage.setTitle("SysVentas SysCenterlife");
+		scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
+		stage.setTitle("SysVentas SysCenterLife");
 		stage.show();
-
 	}
-
 }

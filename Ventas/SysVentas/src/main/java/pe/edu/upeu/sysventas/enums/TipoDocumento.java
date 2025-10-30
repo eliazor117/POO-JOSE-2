@@ -4,4 +4,3 @@ public enum TipoDocumento {
     DNI,
     RUC;
 }
-

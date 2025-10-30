@@ -5,7 +5,7 @@ import pe.edu.upeu.sysventas.model.Producto;
 
 import java.util.List;
 
-public interface    ProductoIService {
+public interface ProductoIService {
     Producto save(Producto producto);
     List<Producto> findAll();
     Producto update(Producto producto);

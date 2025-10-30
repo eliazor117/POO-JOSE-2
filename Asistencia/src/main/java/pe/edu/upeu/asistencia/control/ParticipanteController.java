@@ -7,16 +7,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import pe.edu.upeu.asistencia.enums.Carrera;
 import pe.edu.upeu.asistencia.enums.TipoParticipante;
 import pe.edu.upeu.asistencia.modelo.Participante;
 import pe.edu.upeu.asistencia.servicio.ParticipanteServicioI;
+import pe.edu.upeu.asistencia.servicio.ParticipanteServicioImp;
 
 @Controller
 public class ParticipanteController {
-
+  //private ParticipanteServicioI ps;
     @FXML
     private ComboBox<Carrera> cbxCarrera;
 
@@ -27,12 +31,16 @@ public class ParticipanteController {
     ObservableList<Participante> participantes;
     TableColumn<Participante, String> dniCol, nombreCol, apellidoCol, carreraCol, tipoPartCol;
     TableColumn<Participante, Void> opcionCol;
+
     @Autowired
     ParticipanteServicioI ps;
+
+
     @FXML TextField txtDni, txtNombres, txtApellidos;
     int indexE=-1;
     @FXML
     public void initialize() {
+
         cbxCarrera.getItems().setAll(Carrera.values());
         cbxTipoParticipante.getItems().setAll(TipoParticipante.values());
         definirNombresColumnas();
@@ -63,7 +71,7 @@ public class ParticipanteController {
                         });
                         btnEliminar.setOnAction((event) -> {
                             Participante participante =  getTableView().getItems().get(getIndex());
-                            eliminarParticipante(participante.getDni().getName());
+                            eliminarParticipante(participante.getDni());
                         });
                     }
                 @Override
@@ -81,20 +89,23 @@ public class ParticipanteController {
         opcionCol.setCellFactory(cellFactory);
     }
     public void editarParticipante(Participante p, int index){
-        txtDni.setText(p.getDni().getValue());
-        txtNombres.setText(p.getNombre().getValue());
-        txtApellidos.setText(p.getApellidos().getValue());
+        txtDni.setText(p.getDni());
+        txtNombres.setText(p.getNombre());
+        txtApellidos.setText(p.getApellidos());
         cbxCarrera.getSelectionModel().select(p.getCarrera());
         cbxTipoParticipante.getSelectionModel().select(p.getTipoParticipante());
         indexE=index;
     }
     public void listarParticipantes(){
         dniCol.setCellValueFactory(cellData ->
-                cellData.getValue().getDni());
+                new SimpleStringProperty (cellData.getValue().getDni())
+        );
         nombreCol.setCellValueFactory(cellData ->
-                cellData.getValue().getNombre());
+                new SimpleStringProperty(cellData.getValue().getNombre())
+                );
         apellidoCol.setCellValueFactory(cellData ->
-                cellData.getValue().getApellidos());
+                new SimpleStringProperty(cellData.getValue().getApellidos())
+        );
         carreraCol.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getCarrera().toString()));
         tipoPartCol.setCellValueFactory(cellData ->
@@ -107,11 +118,12 @@ public class ParticipanteController {
     @FXML
     public void crearParticipante(){
         Participante participante = new Participante();
-        participante.setDni(new SimpleStringProperty(txtDni.getText()));
-        participante.setNombre(new SimpleStringProperty(txtNombres.getText()));
-        participante.setApellidos(new SimpleStringProperty(txtApellidos.getText()));
+        participante.setDni(txtDni.getText());
+        participante.setNombre(txtNombres.getText());
+        participante.setApellidos(txtApellidos.getText());
         participante.setCarrera(cbxCarrera.getValue());
         participante.setTipoParticipante(cbxTipoParticipante.getValue());
+        participante.setEstado(true);
         if(indexE==-1){
             ps.save(participante);
         }else{

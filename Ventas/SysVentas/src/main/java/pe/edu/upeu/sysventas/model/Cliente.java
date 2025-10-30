@@ -12,7 +12,8 @@ import pe.edu.upeu.sysventas.enums.TipoDocumento;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "upeu_cliente")public class Cliente {
+@Table(name = "upeu_cliente")
+public class Cliente {
     @Id
     @Column(name = "dniruc", nullable = false, length = 12)
     private String dniruc;

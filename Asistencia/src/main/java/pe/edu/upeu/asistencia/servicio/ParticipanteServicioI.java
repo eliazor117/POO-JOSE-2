@@ -9,9 +9,9 @@ public interface ParticipanteServicioI {
     void save(Participante participante); //C
     List<Participante> findAll(); //R
     Participante update(Participante participante); //U
-    void delete(String Dni); //D
+    void delete(String dni); //D
 
-    Participante findById(int index); //Buscar
+    Participante findById(String dni); //Buscar
 
 
 }
