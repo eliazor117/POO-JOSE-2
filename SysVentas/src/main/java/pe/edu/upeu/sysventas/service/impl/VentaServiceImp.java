@@ -69,4 +69,23 @@ public class VentaServiceImp extends CrudGenericoServiceImp<Venta, Long> impleme
         }
     }
 
+    @Override
+    public JasperPrint runReportVentas(String fInicio, String ffinal) throws
+            JRException, SQLException {
+        HashMap<String, Object> param = new HashMap<>();
+        // Obtener ruta de la imagen
+        String imgen = getFile("logoupeu.png").getAbsolutePath();
+        // Agregar parámetros
+        param.put("FechaI", fInicio);
+        param.put("Imagenurl", imgen);
+        param.put("FechaF", ffinal);
+        // Cargar el diseño del informe
+        JasperDesign jdesign =
+                JRXmlLoader.load(getFile("reporte_venta.jrxml"));
+        JasperReport jreport = JasperCompileManager.compileReport(jdesign);
+        try (Connection conn = dataSource.getConnection()) {
+            return JasperFillManager.fillReport(jreport, param, conn);
+        }
+    }
+
 }
