@@ -88,4 +88,11 @@ public class VentaServiceImp extends CrudGenericoServiceImp<Venta, Long> impleme
         }
     }
 
+    // en VentaServiceImp.java (añadir este método)
+    private byte[] exportReportToPdfBytes(Long idVenta) throws JRException, SQLException {
+        JasperPrint jasperPrint = runReport(idVenta); // ya existe en tu clase
+        return JasperExportManager.exportReportToPdf(jasperPrint); // devuelve byte[]
+    }
+
+
 }

@@ -48,4 +48,7 @@ public abstract class CrudGenericoServiceImp<T,ID> implements ICrudGenericoServi
     public void delete(T t) {
         getRepo().delete(t);
     }
+
+    public void sendBoletaWhatsAppMeta(Long id, String phone) {
+    }
 }
