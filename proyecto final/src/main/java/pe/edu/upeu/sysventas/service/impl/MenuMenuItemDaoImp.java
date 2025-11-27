@@ -13,18 +13,15 @@ public class MenuMenuItemDaoImp implements IMenuMenuItemDao {
 
         List<MenuMenuItenTO> lista = new ArrayList<>();
 
-        lista.add(new MenuMenuItenTO("miprincipal", "/view/login.fxml", idioma.getProperty("menu.nombre.principal"), idioma.getProperty("menuitem.nombre.salir"),                "Salir", "S"));
-        lista.add(new MenuMenuItenTO("miproducto", "/view/main_producto.fxml", idioma.getProperty("menu.nombre.producto"),idioma.getProperty("menuitem.nombre.producto"), "Gestión Productos", "T"));
-        lista.add(new MenuMenuItenTO("micliente", "/view/main_cliene.fxml", "Venta", "Reg. Cliente", "Gestionar Cliente", "T"));
+        lista.add(new MenuMenuItenTO("miprincipal", "/view/login.fxml", idioma.getProperty("menu.nombre.principal"), idioma.getProperty("menuitem.nombre.salir"), "Salir", "S"));
+        lista.add(new MenuMenuItenTO("miproducto", "/view/main_producto.fxml", idioma.getProperty("menu.nombre.producto"), idioma.getProperty("menuitem.nombre.producto"), "Gestión Productos", "T"));
+        // Punto corregido: usar main_cliente.fxml
+        lista.add(new MenuMenuItenTO("micliente", "/view/main_cliente.fxml", "Venta", "Reg. Cliente", "Gestionar Cliente", "T"));
         lista.add(new MenuMenuItenTO("miventa", "/view/main_venta.fxml", "Venta", "Reg.  Venta", "Gestionar Ventas", "T"));
-
         lista.add(new MenuMenuItenTO("mireporte", "/view/main_reporte.fxml", "Venta", "Reportes", "Gestionar Reportes", "T"));
 
-
         List<MenuMenuItenTO> accesoReal = new ArrayList<>();
-
         accesoReal.add(lista.get(0));
-
         switch (perfil) {
             case "Administrador":
                 accesoReal.add(lista.get(2));
@@ -45,14 +42,10 @@ public class MenuMenuItemDaoImp implements IMenuMenuItemDao {
 
     @Override
     public Map<String, String[]> accesosAutorizados(List<MenuMenuItenTO> accesos) {
-
         Map<String, String[]> menuConfig = new HashMap<>();
-
         for (MenuMenuItenTO menu : accesos) {
             menuConfig.put("mi"+menu.getIdNombreObj(), new String[]{menu.getRutaFile(), menu.getNombreTab(),menu.getTipoTab()});
         }
-
         return menuConfig;
     }
-
 }
